@@ -190,3 +190,5 @@ Xcode/
 msvc-full-features/Cataclysm-App.vcxproj
 msvc-full-features/Cataclysm-Lib.vcxproj
 msvc-full-features/Cataclysm-Tests.vcxproj
+msvc-full-features/Cataclysm.sln
+msvc-full-features/Cataclysm-App.vcxproj
