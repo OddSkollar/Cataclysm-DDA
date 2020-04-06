@@ -68,6 +68,22 @@
   },
   {
     "type": "tool_quality",
+    "id": "SAND_W",
+    "name": { "str": "sanding" }
+  },    
+  {
+    "type": "tool_quality",
+    "id": "TILLER",
+    "//": "Represents the use of a tillering stick in bow manufacture.",
+    "name": { "str": "tillering" }
+  },    
+  {
+    "type": "tool_quality",
+    "id": "WEIGH",
+    "name": { "str": "weighing" }    
+    },
+  {
+    "type": "tool_quality",
     "id": "SAW_W",
     "name": { "str": "wood sawing" },
     "usages": [ [ 2, [ "LUMBER" ] ] ]
