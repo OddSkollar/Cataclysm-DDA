@@ -1,5 +1,46 @@
 [
   {
+    "id": "brazier_pseudo",
+    "type": "TOOL",
+    "name": { "str": "brazier" },
+    "description": "This is a crafting_pseudo_item if you have it something is wrong.",
+    "weight": "5000 g",
+    "volume": "2500 ml",
+    "price": 5000,
+    "to_hit": -4,
+    "bashing": 7,
+    "material": [ "steel" ],
+    "symbol": ";",
+    "color": "light_gray",
+    "qualities": [ [ "COOK", 1 ], [ "BOIL", 2 ], [ "CONTAIN", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_brazier",
+    "name": "brazier",
+    "description": "A raised metal dish in which to safely burn things.",
+    "symbol": "#",
+    "color": "red",
+    "move_cost_mod": 2,
+    "coverage": 35,
+    "required_str": 8,
+    "flags": [ "PLACE_ITEM", "TRANSPARENT", "FIRE_CONTAINER", "EASY_DECONSTRUCT" ],
+    "deployed_item": "brazier",
+    "examine_action": "fireplace",
+    "crafting_pseudo_item": "brazier_pseudo",
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "scrap", "count": [ 5, 15 ] },
+        { "item": "steel_chunk", "count": [ 2, 6 ] },
+        { "item": "sheet_metal_small", "count": [ 2, 6 ] }
+      ]
+    }
+  },
+  {
     "id": "brazier",
     "type": "TOOL",
     "name": { "str": "brazier" },
@@ -12,8 +53,7 @@
     "material": [ "steel" ],
     "symbol": ";",
     "color": "light_gray",
-    "use_action": { "type": "deploy_furn", "furn_type": "f_brazier" },
-    "qualities": [ [ "COOK", 1 ], [ "BOIL", 2 ], [ "CONTAIN", 1 ] ]
+    "use_action": { "type": "deploy_furn", "furn_type": "f_brazier" }
   },
   {
     "id": "55gal_firebarrel",
@@ -198,6 +238,67 @@
     "use_action": { "type": "deploy_furn", "furn_type": "f_leather_tarp" }
   },
   {
+    "id": "simple_pulley_pseudo",
+    "type": "TOOL",
+    "name": { "str": "pseudo simple pulley" },
+    "description": "This is a crafting_pseudo_item if you have it something is wrong.",
+    "weight": "12000 g",
+    "volume": "30000 ml",
+    "price": 20000,
+    "to_hit": -2,
+    "bashing": 9,
+    "material": "wood",
+    "qualities": [ [ "LIFT", 1 ] ],
+    "symbol": "A",
+    "color": "light_brown",
+    "flags": [ "ALLOWS_REMOTE_USE" ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_simple_pulley",
+    "name": "simple pulley (deployed)",
+    "description": "A tall and rickety A-frame stepladder without the steps.  Instead, it has a small wheel secured at the top and a two-ended grappling hook wrapped around the pulley.  It's ready to be used.",
+    "symbol": "A",
+    "color": "light_brown",
+    "looks_like": "cantilever_small",
+    "crafting_pseudo_item": "butter_churn_pseudo",
+    "move_cost_mod": -1,
+    "coverage": 40,
+    "required_str": -1,
+    "flags": [ "NOITEM", "TRANSPARENT", "FLAMMABLE", "EASY_DECONSTRUCT" ],
+    "examine_action": "deployed_furniture",
+    "deconstruct": { "items": [ { "item": "simple_pulley", "count": 1 } ] },
+    "bash": {
+      "str_min": 8,
+      "str_max": 50,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [
+        { "item": "2x4", "count": [ 3, 6 ] },
+        { "item": "nail", "charges": [ 4, 12 ] },
+        { "item": "scrap", "count": [ 1, 4 ] },
+        { "item": "splinter", "count": [ 1, 10 ] }
+      ]
+    }
+  },
+  {
+    "id": "simple_pulley",
+    "type": "TOOL",
+    "name": { "str": "simple pulley" },
+    "description": "A tall and rickety folded A-frame stepladder without the steps.  Instead, it has a small wheel secured at the top and a two-ended grappling hook wrapped around the pulley.  When deployed, you could use it to temporarily lift something heavy.",
+    "weight": "12000 g",
+    "volume": "30000 ml",
+    "price": 50,
+    "price_postapoc": 100,
+    "to_hit": -4,
+    "bashing": 7,
+    "material": [ "wood" ],
+    "looks_like": "wheel_bicycle",
+    "symbol": "A",
+    "color": "light_brown",
+    "use_action": { "type": "deploy_furn", "furn_type": "f_simple_pulley" }
+  },
+  {
     "id": "fiber_mat",
     "type": "TOOL",
     "name": { "str": "fiber mat" },
@@ -211,6 +312,52 @@
     "symbol": "*",
     "color": "yellow",
     "use_action": { "type": "deploy_furn", "furn_type": "f_fiber_mat" }
+  },
+  {
+    "id": "butter_churn_pseudo",
+    "type": "TOOL",
+    "name": { "str": "pseudo butter churn" },
+    "description": "This is a crafting_pseudo_item if you have it something is wrong.",
+    "weight": "6464 g",
+    "volume": "9 L",
+    "price": 20000,
+    "to_hit": -2,
+    "bashing": 9,
+    "material": "wood",
+    "qualities": [ [ "CHURN", 1 ] ],
+    "symbol": "H",
+    "color": "light_cyan",
+    "flags": [ "ALLOWS_REMOTE_USE" ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_butter_churn",
+    "name": "butter churn",
+    "description": "A pedal driven butter churn.",
+    "symbol": "H",
+    "color": "light_cyan",
+    "crafting_pseudo_item": "butter_churn_pseudo",
+    "move_cost_mod": -1,
+    "coverage": 70,
+    "required_str": -1,
+    "flags": [ "NOITEM", "SEALED", "ALLOW_FIELD_EFFECT", "TRANSPARENT", "FLAMMABLE", "CONTAINER", "LIQUIDCONT", "EASY_DECONSTRUCT" ],
+    "examine_action": "keg",
+    "keg_capacity": 45,
+    "deconstruct": { "items": [ { "item": "churn", "count": 1 } ] },
+    "bash": {
+      "str_min": 12,
+      "str_max": 50,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [
+        { "item": "2x4", "count": [ 6, 12 ] },
+        { "item": "nail", "charges": [ 4, 8 ] },
+        { "item": "water_faucet", "prob": 50 },
+        { "item": "sheet_metal_small", "count": [ 6, 12 ] },
+        { "item": "scrap", "count": [ 10, 20 ] },
+        { "item": "splinter", "count": [ 1, 20 ] }
+      ]
+    }
   },
   {
     "id": "churn",
@@ -227,8 +374,7 @@
     "looks_like": "f_wood_keg",
     "symbol": "u",
     "color": "light_gray",
-    "use_action": { "type": "deploy_furn", "furn_type": "f_butter_churn" },
-    "qualities": [ [ "CONTAIN", 1 ], [ "CHURN", 1 ] ]
+    "use_action": { "type": "deploy_furn", "furn_type": "f_butter_churn" }
   },
   {
     "id": "water_mill",
