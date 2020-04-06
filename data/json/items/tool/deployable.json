@@ -15,32 +15,6 @@
     "qualities": [ [ "COOK", 1 ], [ "BOIL", 2 ], [ "CONTAIN", 1 ] ]
   },
   {
-    "type": "furniture",
-    "id": "f_brazier",
-    "name": "brazier",
-    "description": "A raised metal dish in which to safely burn things.",
-    "symbol": "#",
-    "color": "red",
-    "move_cost_mod": 2,
-    "coverage": 35,
-    "required_str": 8,
-    "flags": [ "PLACE_ITEM", "TRANSPARENT", "FIRE_CONTAINER", "EASY_DECONSTRUCT" ],
-    "deployed_item": "brazier",
-    "examine_action": "fireplace",
-    "crafting_pseudo_item": "brazier_pseudo",
-    "bash": {
-      "str_min": 8,
-      "str_max": 30,
-      "sound": "metal screeching!",
-      "sound_fail": "clang!",
-      "items": [
-        { "item": "scrap", "count": [ 5, 15 ] },
-        { "item": "steel_chunk", "count": [ 2, 6 ] },
-        { "item": "sheet_metal_small", "count": [ 2, 6 ] }
-      ]
-    }
-  },
-  {
     "id": "brazier",
     "type": "TOOL",
     "name": { "str": "brazier" },
@@ -54,7 +28,8 @@
     "symbol": ";",
     "color": "light_gray",
     "use_action": { "type": "deploy_furn", "furn_type": "f_brazier" }
-  },
+  },  
+
   {
     "id": "55gal_firebarrel",
     "type": "TOOL",
@@ -250,7 +225,7 @@
     "material": "wood",
     "qualities": [ [ "LIFT", 1 ] ],
     "symbol": "A",
-    "color": "light_brown",
+    "color": "brown",
     "flags": [ "ALLOWS_REMOTE_USE" ]
   },
   {
@@ -259,9 +234,9 @@
     "name": "simple pulley (deployed)",
     "description": "A tall and rickety A-frame stepladder without the steps.  Instead, it has a small wheel secured at the top and a two-ended grappling hook wrapped around the pulley.  It's ready to be used.",
     "symbol": "A",
-    "color": "light_brown",
+    "color": "brown",
     "looks_like": "cantilever_small",
-    "crafting_pseudo_item": "butter_churn_pseudo",
+    "crafting_pseudo_item": "simple_pulley_pseudo",
     "move_cost_mod": -1,
     "coverage": 40,
     "required_str": -1,
@@ -285,7 +260,7 @@
     "id": "simple_pulley",
     "type": "TOOL",
     "name": { "str": "simple pulley" },
-    "description": "A tall and rickety folded A-frame stepladder without the steps.  Instead, it has a small wheel secured at the top and a two-ended grappling hook wrapped around the pulley.  When deployed, you could use it to temporarily lift something heavy.",
+    "description": "A tall and rickety folded A-frame stepladder without the steps, with a crude metal pulley track hammered over the top and a 2-ended grapnel.  When deployed, you could use it to temporarily lift something heavy.",
     "weight": "12000 g",
     "volume": "30000 ml",
     "price": 50,
@@ -293,9 +268,9 @@
     "to_hit": -4,
     "bashing": 7,
     "material": [ "wood" ],
-    "looks_like": "wheel_bicycle",
+    "looks_like": "foldwoodframe",
     "symbol": "A",
-    "color": "light_brown",
+    "color": "brown",
     "use_action": { "type": "deploy_furn", "furn_type": "f_simple_pulley" }
   },
   {

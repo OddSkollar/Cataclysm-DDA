@@ -187,3 +187,6 @@ Xcode/
 /.flatpak-builder/
 /repo/
 /build-dir/
+msvc-full-features/Cataclysm-App.vcxproj
+msvc-full-features/Cataclysm-Lib.vcxproj
+msvc-full-features/Cataclysm-Tests.vcxproj
