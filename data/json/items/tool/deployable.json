@@ -2,7 +2,7 @@
   {
     "id": "brazier_pseudo",
     "type": "TOOL",
-    "name": { "str": "brazier" },
+    "name": { "str": "brazier_pseudo" },
     "description": "This is a crafting_pseudo_item if you have it something is wrong.",
     "weight": "5000 g",
     "volume": "2500 ml",

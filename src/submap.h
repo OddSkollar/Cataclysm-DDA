@@ -243,6 +243,7 @@ class submap : maptile_soa<SEEX, SEEY>
          * deleted.
          */
         std::vector<std::unique_ptr<vehicle>> vehicles;
+        std::map<tripoint, std::vector<item>> hidden_items;
         std::map<tripoint, partial_con> partial_constructions;
         std::unique_ptr<basecamp> camp;  // only allowing one basecamp per submap
 

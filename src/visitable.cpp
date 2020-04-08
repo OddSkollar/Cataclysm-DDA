@@ -253,6 +253,7 @@ static int max_quality_from_vpart( const vehicle &veh, int part, const quality_i
     return res;
 }
 
+/* @map_selector defaults here */
 template <typename T>
 int visitable<T>::max_quality( const quality_id &qual ) const
 {
@@ -283,6 +284,36 @@ int visitable<Character>::max_quality( const quality_id &qual ) const
 
     return std::max( res, max_quality_internal( *this, qual ) );
 }
+
+/* @relates visitable */
+template <>
+int visitable<map_selector>::max_quality(const quality_id &qual) const
+{
+    int res = INT_MIN;
+    int max = std::numeric_limits<int>::max();
+    bool check_pseudo = true;
+    auto self = static_cast<const map_selector *>(this);
+    self->visit_items([&res, qual, &check_pseudo, max](const item * e) {
+        res = std::max(res, e->get_quality(qual));
+        return 1;
+    });
+}
+
+/*
+static int amount_of_internal( const T &self, const itype_id &id, bool pseudo, int limit,
+                               const std::function<bool( const item & )> &filter )
+{
+    int qty = 0;
+    self.visit_items( [&qty, &id, &pseudo, &limit, &filter]( const item * e ) {
+        if( ( id == "any" || e->typeId() == id ) && filter( *e ) && ( pseudo ||
+                !e->has_flag( "PSEUDO" ) ) ) {
+            qty = sum_no_wrap( qty, 1 );
+        }
+        return qty != limit ? VisitResponse::NEXT : VisitResponse::ABORT;
+    } );
+    return qty;
+}*/
+
 
 /** @relates visitable */
 template <>
